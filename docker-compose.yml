@@ -36,7 +36,6 @@ services:
       - "3000:3000"
     volumes:
       - ./:/usr/src/app
-      - node_modules:/usr/src/app/node_modules
     command: npm run dev
     networks:
       - appnet

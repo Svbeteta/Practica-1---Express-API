@@ -2,12 +2,15 @@ FROM node:20-alpine
 
 WORKDIR /usr/src/app
 
-# Instalar deps primero (cache)
+# Copiar package.json y package-lock.json primero
 COPY package*.json ./
+
+# Instalar dependencias
 RUN npm install
 
-# Copiar código
-COPY src ./src
+# Copiar todo el código del proyecto (no solo src)
+COPY . .
 
 EXPOSE 3000
-CMD ["npm", "run", "start"]
+
+CMD ["npm", "run", "dev"]
